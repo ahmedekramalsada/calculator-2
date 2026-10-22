@@ -1,0 +1,11 @@
+services:
+  llm-inference-calculator:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: llm-inference-calculator
+    environment:
+      - PORT=80
+    ports:
+      - '${PORT:-3000}:80'
+    restart: unless-stopped
